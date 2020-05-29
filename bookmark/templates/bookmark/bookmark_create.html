@@ -5,7 +5,7 @@
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Add bookmark">
+    <input type="submit" value="Add bookmark"  class="btn btn-warning btn-sm">
 </form>
-    <button onclick="history.back()">Cancel</button>
+    <button onclick="history.back()"  class="btn btn-primary btn-sm">Cancel</button>
 {% endblock %}
