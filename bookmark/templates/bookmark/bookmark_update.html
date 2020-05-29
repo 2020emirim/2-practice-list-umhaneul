@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bookmark Update</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Bookmark Update{% endblock %}
+{% block content %}
     <form action="" method="post">
 
         {% csrf_token %}
@@ -12,6 +8,6 @@
         {{ form.as_table }}
         </table>
         <button type="submit">Modify</button>
+        <button onclick="history.back()">Cancel</button>
     </form>
-</body>
-</html>
+{% endblock %}
