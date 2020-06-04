@@ -5,23 +5,25 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from bookmark.models import Bookmark
 
 
-class BookmarkList(ListView):  # bookmark_lsit.html
+class BookmarkList(ListView):
     model = Bookmark
+    paginate_by = 3
 
 
-class BookmarkCreateView(CreateView):  # bookmark_form.html
+class BookmarkCreateView(CreateView):    #bookmark_form.html
     model = Bookmark
-    fields = ['site_name', 'url']   # <form>가 들어가는 것은 files를 넣어줌
-    template_name_suffix = '_create'  # bookmark_create.html
+    fields = ['site_name', 'url']    #<form>
+    template_name_suffix = '_create'   #bookmark_create.html
     success_url = reverse_lazy('bookmark:list')
+
 
 class BookmarkDetailView(DetailView):
     model = Bookmark
 
 class BookmarkUpdateView(UpdateView):
     model = Bookmark
-    fields = ['site_name', 'url']   # <form>태그가 있을 때 넣는다
-    template_name_suffix = '_update'    # bookmark_update.html
+    fields = ['site_name', 'url']    #<form>
+    template_name_suffix = '_update'    #bookmark_update.html
     success_url = reverse_lazy('bookmark:list')
 
 class BookmarkDeleteView(DeleteView):
